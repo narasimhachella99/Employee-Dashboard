@@ -1,0 +1,25 @@
+<div th:insert="navigation/studentNav"></div>
+<body>
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <h2 class="display-3">Feedback </h2>
+      <form action="/addFeed" method="post">
+        <div class="form-group">
+          <label>Choose Employee</label>
+          <select class="form-select" name="empName">
+            <option th:each="emp : ${employees}" th:text="${emp.name}" th:value="${emp.name}"></option>
+          </select>
+          <label for="message">Feedback</label>
+          <textarea class="form-control" id="message" name="description" rows="4"></textarea>
+        </div>
+        <div class="text-center mt-2">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+</body>

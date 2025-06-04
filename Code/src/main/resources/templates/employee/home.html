@@ -1,0 +1,41 @@
+<div th:insert="navigation/employeeNav.html" xmlns:th="http://www.w3.org/1999/xhtml"></div>
+<html lang="en">
+<head>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Employee Home</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form action="/emp/percent" method="post">
+                <div class="list-group">
+                    <div class="list-group-item active">Subjects Assigned</div>
+                    <div th:each="sub : ${subjects}">
+                        <div class="row mt-2">
+                            <input type="text" name="subId" th:value="${sub.id}" hidden/>
+                            <div class="col-md-4">
+                                <div class="display-5" th:text="${sub.name}"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customRange2">Percent Completed</label>
+                                <input type="range" class="form-range" th:min="${sub.percentage}" max="100" id="customRange2"
+                                       step="1" name="completed"/>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</body>
+</html>

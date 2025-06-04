@@ -1,0 +1,41 @@
+<div th:insert="navigation/hodNav "></div>
+
+<center>
+  <div class="mt-5">
+    <table class="table table-striped table-hover w-50 table-borderless">
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <td>Date</td>
+        <th>Employees</th>
+        <th>Actions</th>
+      </tr>
+      <div
+              class="alert alert-danger"
+              th:if="${error}"
+              th:text="${error}"
+      ></div>
+      <div
+              class="alert alert-success"
+              th:if="${success}"
+              th:text="${success}"
+      ></div>
+      <form action="/assignEmp" method="post">
+      <tr th:each="subject : ${subjects}">
+        <td th:text="${subject.id}"></td>
+        <td th:text="${subject.name}"></td>
+        <td th:text="${subject.date}"></td>
+        <input type="text" name="subjectName" th:value="${subject.name}" hidden/>
+        <td>
+          <select class="form-select" name="empName">
+            <option th:each="emp : ${employees}" th:text="${emp.name}" th:value="${emp.name}"></option>
+          </select>
+        </td>
+        <td>
+          <input type="submit" value="Assign" class="btn btn-secondary"/>
+        </td>
+      </tr>
+      </form>
+    </table>
+  </div>
+</center>

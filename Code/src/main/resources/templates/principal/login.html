@@ -1,0 +1,26 @@
+<div th:insert="navigation/mainNav.html"></div>
+<body>
+<div class="container">
+  <h2 class="display-3"> Principal login</h2>
+  <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
+    <div class="card-body">
+      <form action="/login" method="post">
+        <label>Email</label>
+        <input type="email"
+               class="form-control"
+               name="email"
+               placeholder="Email"
+        >
+        <label>Password</label>
+        <input type="password"
+               class="form-control"
+               name="password"
+               placeholder="Password"
+        >
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+
+    </div>
+  </div>
+</div>
+</body>
